@@ -3,6 +3,7 @@ package com.example.u3_aml.controller;
 import com.example.u3_aml.data.DataEstudiantes;
 import com.example.u3_aml.model.Estudiante;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.ArrayList;
@@ -12,8 +13,10 @@ import java.util.List;
 public class EstudianteControlador {
 
     @GetMapping("/listarEstudiantes")
-    public List<Estudiante> listarEstudiantes() {
+    public List<Estudiante> listarEstudiantes(Model model) {
         DataEstudiantes datos = new DataEstudiantes();
+
+        model.addAttribute("listaEstudiantes", datos.getLista());
 
         return (datos.getLista());
     }
