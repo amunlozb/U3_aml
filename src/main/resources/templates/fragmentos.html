@@ -17,8 +17,9 @@
     <form method="get" action="filtrar">
         <select name="curso" id="curso" required>
             <option value="">Selecciona un Curso</option>
-            <option th:each="curso : ${curso}"></option>
+<!--            <option th:each="curso : ${curso}" th:value="${curso}" th:text="TODO"></option>-->
         </select>
+        <button type="submit">Filtrar</button>
     </form>
 </div>
 
