@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--BUSCADOR-->
+
+<div th:fragment="buscador">
+    <form method="get" action="buscar">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+        <button type="submit">Buscar</button>
+    </form>
+</div>
+
+<!--FILTRO -->
+
+<div th:fragment="filtrar">
+    <form method="get" action="filtrar">
+        <select name="curso" id="curso" required>
+            <option value="">Selecciona un Curso</option>
+            <option th:each="curso : ${curso}"></option>
+        </select>
+    </form>
+</div>
+
+</html>
+

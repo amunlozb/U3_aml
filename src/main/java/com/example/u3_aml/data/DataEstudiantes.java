@@ -35,4 +35,10 @@ public class DataEstudiantes {
     public void setLista(List<Estudiante> lista) {
         this.lista = lista;
     }
+
+    public void addEstudiante(Estudiante estudiante) {
+        lista.add(estudiante);
+    }
+
+
 }

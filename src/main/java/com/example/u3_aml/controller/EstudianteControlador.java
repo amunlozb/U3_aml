@@ -15,7 +15,6 @@ public class EstudianteControlador {
     @GetMapping("/listarEstudiantes")
     public List<Estudiante> listarEstudiantes(Model model) {
         DataEstudiantes datos = new DataEstudiantes();
-
         model.addAttribute("listaEstudiantes", datos.getLista());
 
         return (datos.getLista());
