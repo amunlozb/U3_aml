@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <!--BUSCADOR-->
 
-<div th:fragment="buscador">
-    <form method="get" action="buscar">
-        <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre">
-        <button type="submit">Buscar</button>
-    </form>
-</div>
+    <div th:fragment="buscador">
+        <form method="get" action="/buscarEstudiantes">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" th:field="${nombre}">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+
 
 <!--FILTRO -->
 

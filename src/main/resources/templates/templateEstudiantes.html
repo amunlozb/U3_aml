@@ -19,9 +19,9 @@
 <!--        Cuerpo de la tabla-->
         <tbody>
             <tr th:each="estudiante : ${listaEstudiantes}">
-                <td>${estudiante.nombre}</td>
-                <td>${estudiante.edad}</td>
-                <td>${estudiante.curso}</td>
+                <td th:text="${estudiante.nombre}"></td>
+                <td th:text="${estudiante.edad}"></td>
+                <td th:text="${estudiante.curso}"></td>
             </tr>
         </tbody>
     </table>
