@@ -22,9 +22,32 @@ public class EstudianteServicio {
         return lista;
     }
 
-    public List<Estudiante> filtrarEstudiantes(List<Estudiante> lista, String nombre) {
-        return lista.stream()
+    public List<Estudiante> buscarEstudiantes(String nombre) {
+
+        return datos.getLista().stream()
                 .filter(e -> e.getNombre().contains(nombre))
                 .collect(Collectors.toList());
     }
+
+    public List<Estudiante> filtrarEstudiantes(String curso) {
+        List<Estudiante> lista = datos.getLista();
+        return lista.stream()
+                .filter(e -> e.getCurso().equals(curso))
+                .collect(Collectors.toList());
+    }
+
+    public double mediaEdad() {
+        List<Estudiante> lista = datos.getLista();
+        return lista.stream()
+                .mapToInt((Estudiante::getEdad))
+                .average()
+                .orElse(0);
+    }
+
+    public List<String> obtenerCursos() {
+        List<Estudiante> lista = datos.getLista();
+        return lista.stream().map(Estudiante::getCurso).distinct().collect(Collectors.toList());
+    }
+
+
 }

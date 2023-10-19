@@ -29,8 +29,8 @@ public class Estudiante {
         this.edad = edad;
     }
 
-    public Curso getCurso() {
-        return curso;
+    public String getCurso() {
+        return curso.toString();
     }
 
     public void setCurso(Curso curso) {

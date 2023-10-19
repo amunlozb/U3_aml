@@ -15,7 +15,8 @@ import java.util.List;
 
 @Controller
 public class EstudianteControlador {
-    EstudianteServicio servicio = new EstudianteServicio();
+    @Autowired
+    private EstudianteServicio servicio;
 
     @GetMapping("/")
     public String listarEstudiantes(Model model) {
@@ -27,9 +28,17 @@ public class EstudianteControlador {
 
     @GetMapping("/buscarEstudiantes")
     public String buscarEstudiantes(@RequestParam("nombre") String nombre, Model model) {
-        List<Estudiante> listaFiltrada = servicio.filtrarEstudiantes(servicio.obtenerListaEstudiantes(), nombre);
+        List<Estudiante> listaFiltrada = servicio.buscarEstudiantes(nombre);
+
+        if (listaFiltrada.isEmpty()) {
+            System.out.println("No se encontraron estudiantes con el nombre: " + nombre);
+        } else {
+            for (Estudiante e : listaFiltrada) {
+                System.out.println(e.toString());
+            }
+        }
+
         model.addAttribute("listaEstudiantes", listaFiltrada);
-         model.addAttribute("nombre", nombre);
         return "templateEstudiantes";
     }
 
